@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listening Exercise – Trump & ICE</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #f5f3ef;
+    color: #1a1a2e;
+    padding: 30px 16px;
+    min-height: 100vh;
+  }
+  .container { max-width: 780px; margin: 0 auto; }
+
+  header {
+    background: #1a1a2e;
+    color: white;
+    padding: 32px 36px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    border-left: 6px solid #e8b84b;
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: '🎧';
+    position: absolute;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    opacity: 0.15;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+    color: #e8b84b;
+  }
+  header p { font-size: 0.92rem; opacity: 0.75; letter-spacing: 0.02em; }
+
+  .card {
+    background: white;
+    border-radius: 4px;
+    padding: 26px 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    border-top: 3px solid #e8b84b;
+  }
+  .card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    margin-bottom: 14px;
+    color: #1a1a2e;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+  }
+  audio { width: 100%; margin-bottom: 8px; }
+  .audio-note { font-size: 0.82rem; color: #888; }
+
+  .card input[type=text] {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 1rem;
+    font-family: 'Source Sans 3', sans-serif;
+    transition: border-color 0.2s;
+  }
+  .card input[type=text]:focus {
+    outline: none;
+    border-color: #e8b84b;
+  }
+
+  .questions { display: flex; flex-direction: column; gap: 18px; }
+
+  .question-card {
+    background: white;
+    border-radius: 4px;
+    padding: 24px 28px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    border-left: 4px solid #1a1a2e;
+    transition: border-color 0.2s;
+  }
+  .question-card:hover { border-left-color: #e8b84b; }
+
+  .q-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .q-num {
+    background: #1a1a2e;
+    color: #e8b84b;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.82rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #888;
+    border: 1px solid #ddd;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+  .question-card h3 {
+    font-size: 0.97rem;
+    font-weight: 600;
+    line-height: 1.55;
+    margin-bottom: 14px;
+    color: #1a1a2e;
+  }
+  .options { display: flex; flex-direction: column; gap: 9px; }
+  .option label {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    padding: 10px 13px;
+    border: 1px solid #e8e8e8;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-size: 0.93rem;
+    line-height: 1.45;
+    color: #333;
+  }
+  .option label:hover { background: #fdf8ec; border-color: #e8b84b; }
+  .option input[type=radio] { margin-top: 3px; flex-shrink: 0; accent-color: #1a1a2e; }
+  .option label.selected {
+    background: #fdf8ec;
+    border-color: #e8b84b;
+    color: #1a1a2e;
+    font-weight: 500;
+  }
+
+  .submit-area {
+    margin-top: 28px;
+    text-align: center;
+    padding-bottom: 40px;
+  }
+  .btn-download {
+    background: #1a1a2e;
+    color: #e8b84b;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 3px;
+    font-size: 0.97rem;
+    font-weight: 600;
+    font-family: 'Source Sans 3', sans-serif;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: background 0.2s;
+  }
+  .btn-download:hover { background: #2d2d4e; }
+  .notice { margin-top: 12px; font-size: 0.83rem; color: #999; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Listening Exercise</h1>
+    <p>English VG1 Studiespesialisering &nbsp;·&nbsp; ICE Raids &amp; Immigration Policy &nbsp;·&nbsp; Listen, then answer all seven questions</p>
+  </header>
+
+  <div class="card">
+    <h2>▶ Podcast Audio</h2>
+    <audio controls>
+      <source src="podcast.mp3" type="audio/mpeg">
+      Your browser does not support audio playback.
+    </audio>
+    <p class="audio-note">You may listen as many times as you need before answering.</p>
+  </div>
+
+  <div class="card">
+    <h2>Your Name</h2>
+    <input type="text" id="studentName" placeholder="First and last name" />
+  </div>
+
+  <div class="questions" id="questionsContainer"></div>
+
+  <div class="submit-area">
+    <button class="btn-download" onclick="downloadAnswers()">⬇ Download My Answers</button>
+    <p class="notice">Your answers will be saved as a .doc file your teacher can open.</p>
+  </div>
+</div>
+
+<script>
+const questions = [
+  {
+    id: 1,
+    difficulty: "Main idea",
+    text: "The hosts say their mission in this podcast is to do which of the following?",
+    options: [
+      "Argue that Trump's immigration policy is wrong",
+      "Support the expansion of ICE operations",
+      "Impartially map out the core arguments for and against the policy",
+      "Interview people who have been affected by ICE raids"
+    ],
+    answer: 2
+  },
+  {
+    id: 2,
+    difficulty: "Detail",
+    text: "According to the podcast, what is the key difference between immigration enforcement now compared to before?",
+    options: [
+      "ICE now focuses only on the southern border",
+      "Enforcement has expanded deep into everyday communities, not just the border",
+      "The number of deportations has actually decreased",
+      "ICE now works together with local police in all cities"
+    ],
+    answer: 1
+  },
+  {
+    id: 3,
+    difficulty: "Detail",
+    text: "The hosts explain why ICE conducts visible public operations instead of arresting people in jails. What reason is given?",
+    options: [
+      "Jails are too overcrowded to process immigration cases",
+      "Federal law requires all arrests to happen in public",
+      "Sanctuary cities refuse to hand individuals over to ICE, so agents must make arrests elsewhere",
+      "ICE prefers to operate in public to send a message to communities"
+    ],
+    answer: 2
+  },
+  {
+    id: 4,
+    difficulty: "Vocabulary",
+    text: "The podcast uses the phrase 'militarization of a domestic agency'. What risk do the hosts say this creates?",
+    options: [
+      "That ICE will start operating at the border instead of inside the country",
+      "That the army will take over immigration enforcement completely",
+      "That the agency could exceed its proper authority — called 'overreach'",
+      "That local police will lose their jobs to federal agents"
+    ],
+    answer: 2
+  },
+  {
+    id: 5,
+    difficulty: "Detail",
+    text: "Which of the following human consequences is specifically mentioned in the podcast?",
+    options: [
+      "Children are being separated from parents at the border",
+      "Parents are afraid to take sick children to the doctor or drop them off at school",
+      "Undocumented workers are refusing to pay taxes",
+      "Churches are being closed down after being used as raid locations"
+    ],
+    answer: 1
+  },
+  {
+    id: 6,
+    difficulty: "Inference",
+    text: "The hosts use the phrase 'pressure cooker' to describe the current situation. What do they most likely mean?",
+    options: [
+      "That immigration courts are processing cases too slowly",
+      "That Congress has been working hard under pressure to pass new laws",
+      "That decades of inaction have built up so much tension that the situation is ready to explode",
+      "That ICE agents are under too much stress in their jobs"
+    ],
+    answer: 2
+  },
+  {
+    id: 7,
+    difficulty: "Critical thinking",
+    text: "At the end of the podcast, the hosts ask what it will take for Congress to pass comprehensive immigration reform. What does this question imply?",
+    options: [
+      "That Congress has already agreed on a reform plan but not yet voted on it",
+      "That both political sides are happy with the current system",
+      "That despite widespread agreement the system is broken, political pressure has not been enough to force action",
+      "That the hosts believe executive action is the best solution"
+    ],
+    answer: 2
+  }
+];
+
+const container = document.getElementById('questionsContainer');
+const userAnswers = {};
+
+questions.forEach(q => {
+  const card = document.createElement('div');
+  card.className = 'question-card';
+  card.innerHTML = `
+    <div class="q-header">
+      <div class="q-num">${q.id}</div>
+      <span class="tag">${q.difficulty}</span>
+    </div>
+    <h3>${q.text}</h3>
+    <div class="options">
+      ${q.options.map((opt, i) => `
+        <div class="option">
+          <label id="label-${q.id}-${i}">
+            <input type="radio" name="q${q.id}" value="${i}" onchange="selectAnswer(${q.id}, ${i})">
+            ${String.fromCharCode(65+i)}. ${opt}
+          </label>
+        </div>
+      `).join('')}
+    </div>
+  `;
+  container.appendChild(card);
+});
+
+function selectAnswer(qId, optIndex) {
+  userAnswers[qId] = optIndex;
+  questions.find(q => q.id === qId).options.forEach((_, i) => {
+    document.getElementById(`label-${qId}-${i}`).classList.toggle('selected', i === optIndex);
+  });
+}
+
+function downloadAnswers() {
+  const name = document.getElementById('studentName').value.trim() || 'Unknown student';
+  const date = new Date().toLocaleDateString('en-GB', {year:'numeric', month:'long', day:'numeric'});
+  let score = 0;
+
+  const rows = questions.map(q => {
+    const chosen = userAnswers[q.id];
+    const correct = q.answer;
+    const isCorrect = chosen === correct;
+    if (isCorrect) score++;
+    return `
+<div class="q-block">
+  <p class="tag-p">${q.difficulty}</p>
+  <h2>Q${q.id}: ${q.text}</h2>
+  <table>${q.options.map((opt, i) => {
+    let cls = '';
+    let prefix = '&nbsp;&nbsp;';
+    if (i === chosen && i === correct) { cls = 'correct'; prefix = '✓'; }
+    else if (i === chosen) { cls = 'wrong'; prefix = '✗'; }
+    else if (i === correct) { cls = 'correct'; prefix = '●'; }
+    return `<tr><td class="${cls}" style="padding:3px 10px;">${prefix} ${String.fromCharCode(65+i)}. ${opt}</td></tr>`;
+  }).join('')}</table>
+  <p style="margin-top:8pt; font-size:10pt;">
+    <strong>Student answered:</strong> ${chosen !== undefined ? String.fromCharCode(65+chosen)+'. '+q.options[chosen] : '<em>(no answer)</em>'}<br>
+    <strong>Result:</strong> <span class="${isCorrect?'correct':'wrong'}">${isCorrect ? '✓ Correct' : '✗ Incorrect — correct: '+String.fromCharCode(65+correct)+'. '+q.options[correct]}</span>
+  </p>
+</div>`;
+  }).join('');
+
+  const html = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head><meta charset='utf-8'>
+<style>
+  body { font-family: Calibri, sans-serif; font-size: 11pt; margin: 2.5cm; }
+  h1 { font-size: 18pt; color: #1a1a2e; border-bottom: 2px solid #e8b84b; padding-bottom: 6pt; }
+  h2 { font-size: 11pt; font-weight: 600; color: #1a1a2e; margin: 10pt 0 6pt; }
+  .meta { color: #666; font-size: 10pt; margin: 6pt 0 18pt; }
+  .q-block { margin-bottom: 16pt; border-bottom: 1px solid #eee; padding-bottom: 12pt; }
+  .tag-p { font-size: 8pt; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4pt; }
+  .correct { color: #276749; font-weight: bold; }
+  .wrong { color: #c53030; font-weight: bold; }
+  .score { font-size: 16pt; font-weight: bold; color: #1a1a2e; margin-top: 22pt; background: #fdf8ec; padding: 10pt 16pt; border-left: 4px solid #e8b84b; }
+</style>
+</head>
+<body>
+<h1>Listening Exercise — ICE Raids &amp; Immigration</h1>
+<p class="meta">English VG1 Studiespesialisering &nbsp;|&nbsp; <strong>${name}</strong> &nbsp;|&nbsp; ${date}</p>
+${rows}
+<p class="score">Final Score: ${score} / ${questions.length}</p>
+</body></html>`;
+
+  const blob = new Blob([html], {type: 'application/msword'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${name.replace(/\s+/g,'_')}_listening_exercise.doc`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
